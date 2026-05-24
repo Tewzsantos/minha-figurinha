@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --verde: #009C3B;
+  --verde-escuro: #007B2E;
+  --amarelo: #FFDF00;
+  --azul: #002776;
+  --ciano: #00C4C8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Brazilian flag stripe */
+.stripe-br {
+  height: 6px;
+  background: linear-gradient(90deg, #009C3B 33.33%, #FFDF00 33.33% 66.66%, #002776 66.66%);
+}
+
+/* Figurinha card font */
+.font-bebas {
+  font-family: var(--font-bebas), 'Arial Black', sans-serif;
+}
+
+/* Watermark overlay */
+.watermark {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.watermark-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-35deg);
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.5);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  letter-spacing: 2px;
+  line-height: 2.2;
+  width: 200%;
+  text-align: center;
+  user-select: none;
+}
+
+/* Shimmer loading effect */
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Progress bar */
+.progress-bar {
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Input base styles */
+.input-base {
+  @apply w-full px-4 py-4 rounded-xl border-2 border-gray-200 focus:border-verde focus:outline-none text-gray-900 text-lg font-medium transition-colors bg-white;
+  min-height: 56px;
+}
+
+.input-base:focus {
+  box-shadow: 0 0 0 4px rgba(0, 156, 59, 0.1);
+}
+
+/* Btn primary */
+.btn-primary {
+  @apply w-full bg-verde hover:bg-verde-escuro text-white font-bold text-lg rounded-xl py-4 transition-all duration-200 flex items-center justify-center gap-2;
+  min-height: 56px;
+  box-shadow: 0 4px 20px rgba(0, 156, 59, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(0, 156, 59, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Upload drop area */
+.upload-area {
+  @apply border-2 border-dashed border-gray-300 rounded-2xl p-8 text-center cursor-pointer transition-all duration-200 bg-gray-50;
+}
+
+.upload-area:hover, .upload-area.drag-over {
+  @apply border-verde bg-green-50;
+}
+
+/* Figurinha shadow */
+.figurinha-shadow {
+  filter: drop-shadow(0 16px 48px rgba(0,0,0,0.22));
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(var(--rot, 0deg)); }
+  50% { transform: translateY(-12px) rotate(var(--rot, 0deg)); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.anim-float-1 { animation: float 3.2s ease-in-out infinite; --rot: -3deg; }
+.anim-float-2 { animation: float 3.8s ease-in-out infinite 0.3s; --rot: 1deg; }
+.anim-float-3 { animation: float 3.4s ease-in-out infinite 0.6s; --rot: -2deg; }
+.anim-fade-up { animation: fadeInUp 0.6s ease-out both; }
+.anim-fade-up-1 { animation: fadeInUp 0.6s ease-out 0.1s both; }
+.anim-fade-up-2 { animation: fadeInUp 0.6s ease-out 0.2s both; }
+.anim-fade-up-3 { animation: fadeInUp 0.6s ease-out 0.3s both; }
