@@ -15,6 +15,7 @@ export default function HomePage() {
       country: 'BRA',
       countryFlag: '🇧🇷',
       bgClass: 'anim-float-1',
+      photoUrl: '/figurinha-helena.webp'
     },
     {
       name: 'Miguel',
@@ -26,6 +27,7 @@ export default function HomePage() {
       country: 'BRA',
       countryFlag: '🇧🇷',
       bgClass: 'anim-float-2',
+      photoUrl: '/figurinha-miguel.webp'
     },
     {
       name: 'Arthur',
@@ -37,6 +39,7 @@ export default function HomePage() {
       country: 'BRA',
       countryFlag: '🇧🇷',
       bgClass: 'anim-float-3',
+      photoUrl: '/figurinha-arthur.webp'
     },
   ]
 
@@ -127,6 +130,7 @@ export default function HomePage() {
                   number={ex.number}
                   country={ex.country}
                   countryFlag={ex.countryFlag}
+                  photoUrl={ex.photoUrl}
                 />
               </div>
             ))}
