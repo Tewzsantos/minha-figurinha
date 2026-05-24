@@ -80,7 +80,8 @@ Responda apenas "OK".`,
         response_format: 'b64_json',
         quality: 'hd',
       })
-      generatedBase64 = imgRes.data[0].b64_json!
+      generatedBase64 = imgRes.data?.[0]?.b64_json ?? ''
+      if (!generatedBase64) throw new Error('No image data returned')
     } catch {
       // Fallback: composite the user's photo into a basic template
       generatedBase64 = await buildFallback(photoBuffer, nome, birthDate, altura, peso, clube)
